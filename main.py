@@ -185,9 +185,9 @@ mime_type = "application/pdf"
 b64 = base64.b64encode(file_bytes).decode("utf-8")
 
 # Carrega variável da open ia do .env
-# load_dotenv()
+load_dotenv()
 
-# client = OpenAI()
+client = OpenAI()
 
 response = client.responses.create(
     model=MODEL,

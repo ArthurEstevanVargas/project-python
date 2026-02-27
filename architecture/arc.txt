@@ -1,0 +1,8 @@
+git-review-agent/
+│
+├── git_review_agent/
+│   ├── __init__.py
+│   └── cli.py
+│
+├── pyproject.toml
+└── README.md

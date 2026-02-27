@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "git-review-agent"
+version = "0.1.0"
+description = "CLI para revisar diff do Git com OpenAI"
+requires-python = ">=3.10"
+dependencies = [
+  "openai",
+  "python-dotenv",
+]
+
+[project.scripts]
+git-review = "git_review_agent.cli:main"
+
+[tool.setuptools]
+packages = ["git_review_agent"]

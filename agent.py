@@ -74,11 +74,11 @@ def __save_md_history(md_text: str, current_branch: str, target_branch: str) -> 
 
 def main():
     # # 1) Verifica se está dentro de um repositório git
-    # try:
-    #     run_git(["rev-parse", "--is-inside-work-tree"])
-    # except Exception:
-    #     print("Você não está dentro de um repositório Git.")
-    #     return
+    try:
+        run_git(["rev-parse", "--is-inside-work-tree"])
+    except Exception:
+        print("Você não está dentro de um repositório Git.")
+        return
 
     # 2) Descobre a branch atual
     current_branch = run_git(["branch", "--show-current"])
@@ -112,31 +112,25 @@ def main():
     proc = __process_name()
 
     SYSTEM_PROMPT_MD = textwrap.dedent(f"""
-    Você é um revisor técnico. Retorne APENAS Markdown puro (sem cercas ```), seguindo exatamente esta estrutura:
+        Você é um revisor técnico. Retorne APENAS Markdown puro (sem cercas ```), seguindo exatamente esta estrutura:
 
-    # Histórico do Agente — Review de Diff
-    - Data: {today_iso}
-    - Processo: {proc}
-    - Branch atual: {current_branch}
-    - Branch alvo: {target_branch}
-    - Merge-base: {merge_base}
+        # Histórico do Agente — Review de Diff
+        - Data: {today_iso}
+        - Processo: {proc}
+        - Branch atual: {current_branch}
+        - Branch alvo: {target_branch}
+        - Merge-base: {merge_base}
 
-    ## Resumo das mudanças
-    <texto>
+        ## Riscos e possíveis bugs
+        - <itens>
 
-    ## Riscos e possíveis bugs
-    - <itens>
+        ## Testes recomendados
+        - <itens>
 
-    ## Testes recomendados
-    - <itens>
-
-    ## Observações (opcional)
-    <texto ou vazio>
-
-    Regras:
-    - Seja objetivo.
-    - Não invente nada fora do diff.
-    - Se não houver informação suficiente, diga explicitamente.
+        Regras:
+        - Seja objetivo.
+        - Não invente nada fora do diff.
+        - Se não houver informação suficiente, diga explicitamente.
     """)
 
     response = client.responses.create(
@@ -165,7 +159,7 @@ Diff:
     saved_path = __save_md_history(md_text, current_branch, target_branch)
 
     # Retorna no chat/terminal o Markdown e informa onde salvou
-    print(md_text)
+    # print(md_text)
     print(f"\n[Salvo em: {saved_path}]")
 
 # Código que deve rodar apenas quando o arquivo for executado diretamente.

@@ -205,3 +205,14 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Project specific
+# Arquivos de currículo (exemplos)
+*.pdf
+*.jpg
+*.png
+!architecture/*.png
+!architecture/*.jpg
+
+# Histórico de reviews (opcional - remova se quiser versionar)
+# history/

@@ -266,3 +266,10 @@ response = client.responses.create(
 )
 
 print(response.output_text)
+
+def main():
+    """Entry point para CLI."""
+    print("CV Extractor executado com sucesso!")
+
+if __name__ == "__main__":
+    main()

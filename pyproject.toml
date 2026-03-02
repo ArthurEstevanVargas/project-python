@@ -5,15 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "git-review-agent"
 version = "0.1.0"
-description = "CLI para revisar diff do Git com OpenAI"
+description = "CLI para revisar diff do Git com OpenAI e extração de dados de currículos"
 requires-python = ">=3.10"
 dependencies = [
   "openai",
   "python-dotenv",
+  "pydantic",
 ]
 
 [project.scripts]
 git-review = "git_review_agent.cli:main"
+cv-extract = "cv_extractor.extractor:main"
 
 [tool.setuptools]
-packages = ["git_review_agent"]
+packages = ["git_review_agent", "cv_extractor"]

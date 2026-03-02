@@ -6,23 +6,23 @@ Este projeto contém duas ferramentas independentes que compartilham a mesma inf
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    Projeto Principal                     │
+│                    Projeto Principal                    │
 ├─────────────────────────────────────────────────────────┤
-│                                                          │
-│  ┌──────────────────────┐  ┌──────────────────────┐   │
-│  │  Git Review Agent    │  │    CV Extractor      │   │
-│  │                      │  │                      │   │
-│  │  - Analisa diffs     │  │  - Extrai dados      │   │
-│  │  - Gera relatórios   │  │  - Estrutura JSON    │   │
-│  │  - Salva histórico   │  │  - Classifica info   │   │
-│  └──────────┬───────────┘  └──────────┬───────────┘   │
-│             │                          │               │
-│             └──────────┬───────────────┘               │
-│                        │                               │
-│                ┌───────▼────────┐                      │
-│                │  OpenAI API    │                      │
-│                │  (GPT-4.1)     │                      │
-│                └────────────────┘                      │
+│                                                         │
+│  ┌──────────────────────┐  ┌──────────────────────┐     │
+│  │  Git Review Agent    │  │    CV Extractor      │     │
+│  │                      │  │                      │     │
+│  │  - Analisa diffs     │  │  - Extrai dados      │     │
+│  │  - Gera relatórios   │  │  - Estrutura JSON    │     │
+│  │  - Salva histórico   │  │  - Classifica info   │     │
+│  └──────────┬───────────┘  └──────────┬───────────┘     │
+│             │                          │                │
+│             └──────────┬───────────────┘                │
+│                        │                                │
+│                ┌───────▼────────┐                       │
+│                │  OpenAI API    │                       │
+│                │  (GPT-4.1)     │                       │
+│                └────────────────┘                       │
 └─────────────────────────────────────────────────────────┘
 ```
 
